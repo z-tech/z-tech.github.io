@@ -1,0 +1,29 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base styles */
+  body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    padding: 2rem;
+    background-color: #fdfdfd;
+    color: #222;
+  }
+  
+  header, footer {
+    margin-bottom: 2rem;
+  }
+
+  section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
