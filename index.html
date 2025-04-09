@@ -9,30 +9,70 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  <style>
+    .about-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 900px;
+      padding: 0;
+      gap: 1.5rem;
+    }
+
+    .about-photo {
+      width: 160px;
+      height: auto;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text {
+      max-width: 600px;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+    }
+
+    @media (min-width: 768px) {
+      .about-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      .about-text {
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    
-  <h1>Andrew Zitek-Estrada</h1>
 
-  <p>Cryptography Engineer</p>
+<div class="about-wrapper">
+    <img src="/images/Andrew-Zitek-Estrada-pic.webp" alt="Andrew Zitek-Estrada" class="about-photo" />
 
-  <p>École Polytechnique Fédérale de Lausanne</p>
+    <section class="about-text">
+        <h1>Andrew Zitek-Estrada</h1>
 
-  <p>andrew.zitek [at] epfl [dot] ch</p>
+        <p>Cryptography Engineer</p>
+      
+        <p>École Polytechnique Fédérale de Lausanne</p>
+      
+        <p>andrew.zitek [at] epfl [dot] ch</p>
+    </section>
+  </div>
 
 <section>
     <h2>About Me</h2>
     <p>
-        I am a cryptography engineer at 
-        <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer">EPFL</a>, working in the 
-        <a href="https://compsec.epfl.ch" target="_blank" rel="noopener noreferrer">Laboratory for Computation Security</a> led by 
-        <a href="https://ic-people.epfl.ch/~achiesa" target="_blank" rel="noopener noreferrer">Alessandro Chiesa</a>.
+      I am a cryptography engineer at 
+      <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer">EPFL</a>, working in the 
+      <a href="https://compsec.epfl.ch" target="_blank" rel="noopener noreferrer">Laboratory for Computation Security</a> led by 
+      <a href="https://ic-people.epfl.ch/~achiesa" target="_blank" rel="noopener noreferrer">Alessandro Chiesa</a>.
     </p>
     <p>
-        Previously, I was a research assistant at
-        <a href="https://www.nyu.edu" target="_blank" rel="noopener noreferrer">NYU</a> with 
-        <a href="https://jbonneau.com" target="_blank" rel="noopener noreferrer">Joseph Bonneau</a> and also a software engineer at 
-        <a href="https://www.ibm.com/us-en" target="_blank" rel="noopener noreferrer">IBM</a>.
+      Previously, I was a research assistant at
+      <a href="https://www.nyu.edu" target="_blank" rel="noopener noreferrer">NYU</a> with 
+      <a href="https://jbonneau.com" target="_blank" rel="noopener noreferrer">Joseph Bonneau</a> and also a software engineer at 
+      <a href="https://www.ibm.com/us-en" target="_blank" rel="noopener noreferrer">IBM</a>.
     </p>
 </section>
 
