@@ -11,7 +11,7 @@
     line-height: 1.6;
     padding: 2rem;
     background-color: #fdfdfd;
-    color: #222;
+    color: #000;
   }
   
   
@@ -26,5 +26,10 @@
   
   nav a:hover {
     text-decoration: underline;
+  }
+
+  section ul {
+    margin-left: 1.5rem;
+    font-size: 0.95em;
   }
   

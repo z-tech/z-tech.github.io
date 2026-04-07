@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="uAHUZcX4jr5_H01QjqfsV4J1MMhHjySFH5-y-d3w8Lg" />
   <title>Andrew Zitek-Estrada</title>
-  <meta name="description" content="Personal website of Andrew Zitek-Estrada.">
+  <meta name="description" content="Andrew Zitek-Estrada — Cryptography engineer at EPFL working on proof systems, formalization, and high-performance cryptographic software.">
   <link rel="canonical" href="https://andrewzitek.xyz">
   <link rel="stylesheet" href="style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
@@ -106,6 +106,9 @@
         <br />
         NDSS 2026 (2026 Network and Distributed Systems Security Symposium)
     </p>
+    <ul>
+      <li>Presented: NDSS 2026 (<a href="/images/slides/ndss-2026-sok-slides.pdf" target="_blank" rel="noopener noreferrer">slides</a>)</li>
+    </ul>
     <br />
     <p>
         <a href="https://eprint.iacr.org/2025/1473" target="_blank" rel="noopener noreferrer">Time-Space Trade-Offs for Sumcheck</a>
@@ -122,6 +125,9 @@
         <br />
         Cryptology ePrint Archive, Report 2024/524
     </p>
+    <ul>
+      <li>Presented: ZKProof 6 (<a href="/images/slides/zkproof6-sumcheck-slides.pdf" target="_blank" rel="noopener noreferrer">slides</a>)</li>
+    </ul>
     <br />
     <p>
         <a href="https://dl.acm.org/doi/abs/10.1145/3548606.3560605" target="_blank" rel="noopener noreferrer">VeRSA: Verifiable Registries with Efficient Client Audits from RSA Authenticated Dictionaries</a>
@@ -134,28 +140,31 @@
 
 <section>
     <h2>Open-Source Projects</h2>
-    <p>
-    <a href="https://github.com/z-tech/sumcheck-lean4" target="_blank" rel="noopener noreferrer">Formalization of the Sumcheck Protocol</a>
-    <p>A computable implementation of the Sumcheck protocol in Lean 4 with machine-checked completeness and soundness.</p>
-    </p>
+    <p><a href="https://github.com/z-tech/sumcheck-lean4" target="_blank" rel="noopener noreferrer">Formalization of the Sumcheck Protocol</a></p>
+    <ul>
+      <li>First computable reference implementation of the Sumcheck protocol in Lean 4</li>
+      <li>Machine-checked completeness and soundness; yields correctness oracle for sumcheck implementations</li>
+    </ul>
     <br />
-  
-    <p>
-    <a href="/images/small_fp_slides.pdf" target="_blank" rel="noopener noreferrer">Small Fields for Arkworks</a>
-    <p>In this project we build a path toward vectorization for finite fields in Arkworks and in the process get a performance boost in serial.</p>
-    </p>
+
+    <p><a href="https://github.com/arkworks-rs/algebra" target="_blank" rel="noopener noreferrer">Small Fields for Arkworks</a> (<a href="/images/slides/small-fields-slides.pdf" target="_blank" rel="noopener noreferrer">slides</a>)</p>
+    <ul>
+      <li>Redesigned ark-ff (850+ GitHub stars) to use native integer arithmetic for small prime fields</li>
+      <li>Up to 30% speedups in high-level protocols as a one-line dependency swap</li>
+    </ul>
     <br />
-  
-    <p>
-    <a href="https://github.com/compsec-epfl/space-efficient-sumcheck" target="_blank" rel="noopener noreferrer">Efficient Sumcheck</a>
-    <p>An efficient, streaming friendly sumcheck library with Fiat-Shamir support via <a href="https://github.com/arkworks-rs/spongefish" target="_blank" rel="noopener noreferrer">SpongeFish</a>.</p>
-    </p>
+
+    <p><a href="https://github.com/compsec-epfl/space-efficient-sumcheck" target="_blank" rel="noopener noreferrer">Efficient Sumcheck</a></p>
+    <ul>
+      <li>Systematized prover techniques into a streaming-capable sumcheck library with Fiat-Shamir support</li>
+      <li>Designed compile-time vectorization dispatch for specialized fields, achieving up to 7.9x speedups</li>
+    </ul>
 </section>
 
 <section>
     <h2>Students 📢👩🏻‍🔬</h2>
     <p>
-      For students interested in projects related to optimization, formalization and benchmarking for proving systems 👉 please send me an email 👈 w/ your CV.
+      For students interested in projects related to proof systems, formalization, and high-performance systems engineering, 👉 please send me an email 👈 with your CV.
     </p>
 </section>
 
