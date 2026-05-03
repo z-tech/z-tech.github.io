@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Small primes, native arithmetic — arkworks 0.6.0</title>
+  <meta name="description" content="arkworks 0.6.0 ships SmallFp: any prime up to 64 bits, now backed by a primitive-tuned implementation in ark-ff. The arithmetic underneath modern proving systems is now first-class in arkworks.">
+  <link rel="canonical" href="https://andrewzitek.xyz/posts/small-fields-arkworks-0-6-0.html">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    body { padding: 2rem 1.5rem; }
+    article { max-width: 680px; margin: 0 auto; }
+    article p, article ul, article ol { max-width: 680px; }
+    article p { margin: 0 0 1.05rem; }
+
+    .topbar {
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      font-size: 0.82em;
+      color: #888;
+    }
+    .topbar a { color: #888; text-decoration: none; }
+    .topbar a:hover { color: #000; text-decoration: underline; }
+
+    .release-banner {
+      display: inline-block;
+      background: #e7f5ec;
+      color: #0a6b2c;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin: 0 0 1rem;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    .release-banner:hover {
+      background: #d4ecdc;
+      color: #0a6b2c;
+    }
+    .release-banner .dot {
+      display: inline-block;
+      width: 0.45em;
+      height: 0.45em;
+      background: #1aa84a;
+      border-radius: 999px;
+      margin-right: 0.45em;
+      transform: translateY(-1px);
+    }
+
+    .kicker {
+      font-size: 0.78em;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #999;
+      margin: 0 0 0.9rem;
+      font-weight: 600;
+    }
+    article h1 {
+      font-size: 2.4rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      max-width: 680px;
+    }
+    .dek {
+      font-size: 1.15rem;
+      line-height: 1.45;
+      color: #444;
+      font-weight: 400;
+      margin: 0 0 1.5rem;
+      max-width: 640px;
+    }
+    .byline {
+      font-size: 0.85em;
+      color: #888;
+      margin: 0 0 2rem;
+      letter-spacing: 0.02em;
+    }
+    .byline a { color: #555; text-decoration: none; border-bottom: 1px solid #ddd; }
+    .byline a:hover { color: #000; border-bottom-color: #000; }
+
+    figure.hero { margin: 0.5rem 0 2.25rem; }
+    figure.hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+    figure.hero figcaption {
+      font-size: 0.82em;
+      color: #888;
+      text-align: center;
+      margin-top: 0.6rem;
+      font-style: italic;
+      line-height: 1.45;
+    }
+    figure.hero figcaption a { color: #888; text-decoration: underline; }
+
+    article h2 {
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+      margin: 2.4rem 0 0.85rem;
+      font-weight: 700;
+    }
+
+    article ul { margin: 0.25rem 0 1.1rem 1.5rem; }
+    article li { margin-bottom: 0.4rem; }
+
+    article pre, article code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.92em;
+    }
+    article pre {
+      background: #f6f6f6;
+      padding: 0.85rem 1rem;
+      overflow-x: auto;
+      border-radius: 4px;
+      border-left: 3px solid #ddd;
+      margin: 1rem 0 1.4rem;
+    }
+    article code { background: #f4f4f4; padding: 0.05em 0.3em; border-radius: 3px; }
+    article pre code { background: none; padding: 0; }
+
+    .endmark {
+      text-align: center;
+      color: #bbb;
+      letter-spacing: 0.4em;
+      margin: 2.5rem 0 2rem;
+      font-size: 0.9em;
+    }
+
+    .signoff {
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 1.5rem;
+    }
+    .signoff a { color: #444; }
+
+    .article-footer {
+      max-width: 680px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+      font-size: 0.9em;
+      color: #666;
+    }
+    .article-footer a { color: #555; }
+  </style>
+</head>
+<body>
+
+<nav class="topbar"><a href="../index.html">andrewzitek.xyz</a> &nbsp;/&nbsp; writing</nav>
+
+<article>
+  <a class="release-banner" href="https://docs.rs/crate/ark-ff/0.6.0" target="_blank" rel="noopener noreferrer"><span class="dot"></span>Arkworks v0.6.0 is officially out</a>
+  <p class="kicker">arkworks 0.6.0</p>
+  <h1>Small primes, native arithmetic.</h1>
+  <p class="dek">
+    Any prime up to 64 bits, now backed by a primitive-tuned implementation in <code>ark-ff</code>.
+    The arithmetic underneath modern proving systems is now first-class in Arkworks.
+  </p>
+  <p class="byline"><a href="../index.html">Andrew Zitek-Estrada</a> &middot; May 3, 2026</p>
+
+  <figure class="hero">
+    <a href="https://en.wikipedia.org/wiki/Las_Hilanderas" target="_blank" rel="noopener noreferrer">
+      <img src="/images/las-hilanderas.jpg" alt="Las Hilanderas (The Fable of Arachne) by Diego Velázquez — a painting of women spinning thread in a tapestry workshop." />
+    </a>
+    <figcaption>
+      Diego Velázquez, <em>Las Hilanderas (The Fable of Arachne)</em>, c.&nbsp;1657. Museo del Prado, Madrid.<br />
+      Public domain via <a href="https://commons.wikimedia.org/wiki/File:Velazquez-las_hilanderas.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.
+    </figcaption>
+  </figure>
+
+  <p>
+    The shape of proving has changed.
+  </p>
+
+  <p>
+    Over the last decade, proving systems have been shrinking their arithmetic. Each generation has
+    found a way to make the same soundness argument over a smaller field, from well over 200 bits to
+    fields that fit inside a single 64 bit register.
+  </p>
+
+  <p>
+    That matters because hardware matters.
+  </p>
+
+  <p>
+    A wider field becomes a loop. A register sized field becomes native. Its arithmetic compiles into
+    the instructions a modern CPU was built to execute. The math may not care. The machine does.
+  </p>
+
+  <p>
+    The primes that have surfaced in this movement, Mersenne31, BabyBear, KoalaBear, and Goldilocks,
+    share a simple property. The machine likes them.
+  </p>
+
+  <p>
+    Arkworks 0.6.0 makes them central to the system. It accepts these fields, and it accepts whatever
+    comes next.
+  </p>
+
+  <h2>Optimizations</h2>
+
+  <p>
+    The headline isn't four primes. The headline is that <code>ark-ff</code> now contains a procedural macro,
+    <code>SmallFp</code>, which takes any prime up to 64 bits and emits a field type whose memory representation
+    is decided at compile time from the modulus. A 31-bit prime lives in a <code>u32</code>. A 64-bit
+    Goldilocks element lives in a <code>u64</code>. Nothing in the hot path pays for a limb loop, because the
+    limb loop has been compiled away.
+  </p>
+
+  <p>
+    Where the prime has a recognizable shape &mdash; Mersenne form, for instance &mdash; the macro emits a reduction
+    path tuned for that shape. Where it doesn't, the fallback is a clean native-integer reduction.
+  </p>
+
+  <h2>Non-Breaking</h2>
+
+  <p>
+    <code>SmallFp</code> is a drop in replacement. No breaking changes. Migration is one line.
+    Higher-level protocols see up to a 30% speedup.
+  </p>
+
+  <p>The migration replaces a config struct and a type alias with a single call:</p>
+
+<pre><code>define_field!(
+    name = Goldilocks,
+    modulus = "18446744069414584321",
+    generator = "7",
+);</code></pre>
+
+  <p>
+    Everything generic over <code>Field</code> &mdash; sumcheck, FFTs, MSMs, your constraint system &mdash; keeps
+    compiling. The pairing-friendly curves and their 254-bit arithmetic continue along the path they were always on,
+    untouched.
+  </p>
+
+  <p>
+    See wall-clock benchmarks for Rust libraries at
+    <a href="https://andrewzitek.xyz/smallfp-site/" target="_blank" rel="noopener noreferrer">andrewzitek.xyz/smallfp-site</a>.
+  </p>
+
+  <p>
+    See the source at
+    <a href="https://github.com/arkworks-rs/algebra" target="_blank" rel="noopener noreferrer">github.com/arkworks-rs/algebra</a>.
+  </p>
+
+</article>
+
+<footer class="article-footer">
+  <p>&larr; <a href="../index.html">Back to andrewzitek.xyz</a></p>
+  <p>&copy; <span id="year"></span> Andrew Zitek-Estrada</p>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
