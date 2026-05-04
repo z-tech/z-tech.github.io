@@ -6,6 +6,19 @@
   <title>Small primes, native arithmetic — arkworks 0.6.0</title>
   <meta name="description" content="arkworks 0.6.0 ships SmallFp: any prime up to 64 bits, now backed by a primitive-tuned implementation in ark-ff. The arithmetic underneath modern proving systems is now first-class in arkworks.">
   <link rel="canonical" href="https://andrewzitek.xyz/small-fields/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Small primes, native arithmetic — arkworks 0.6.0">
+  <meta property="og:description" content="Any prime up to 64 bits, now backed by a primitive-tuned implementation in ark-ff. The arithmetic underneath modern proving systems is now first-class in arkworks.">
+  <meta property="og:url" content="https://andrewzitek.xyz/small-fields/">
+  <meta property="og:image" content="https://andrewzitek.xyz/images/las-hilanderas.jpg">
+  <meta property="og:image:alt" content="Las Hilanderas (The Fable of Arachne) by Diego Velázquez.">
+  <meta property="og:site_name" content="Andrew Zitek-Estrada">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Small primes, native arithmetic — arkworks 0.6.0">
+  <meta name="twitter:description" content="Any prime up to 64 bits, now backed by a primitive-tuned implementation in ark-ff.">
+  <meta name="twitter:image" content="https://andrewzitek.xyz/images/las-hilanderas.jpg">
+
   <link rel="stylesheet" href="../style.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
@@ -183,7 +196,7 @@
   </p>
 
   <p>
-    Over the last decade, proving systems have been shrinking their arithmetic. Each generation has
+    Over the last decade, proving systems have shrunk their arithmetic. Each generation has
     found a way to make the same soundness argument over a smaller field, from well over 200 bits to
     fields that fit inside a single 64 bit register.
   </p>
@@ -241,11 +254,6 @@
     Everything generic over <code>Field</code> &mdash; sumcheck, FFTs, MSMs, your constraint system &mdash; keeps
     compiling. The pairing-friendly curves and their 254-bit arithmetic continue along the path they were always on,
     untouched.
-  </p>
-
-  <p>
-    Congratulations to <a href="https://github.com/benbencik" target="_blank" rel="noopener noreferrer">Ben</a>
-    and maintainers on shipping this milestone.
   </p>
 
   <p>
