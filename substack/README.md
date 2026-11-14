@@ -56,3 +56,5 @@ python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
 Open `http://127.0.0.1:8000/substack/`. Check both variants, narrow screens, keyboard navigation, form errors, and the signup fallback. The core copy, embed, and links work without this page's JavaScript; Substack requires its own JavaScript for signup. Publish through the existing GitHub Pages workflow.
+
+The stylesheet URL in `index.html` includes a content-hash version to prevent stale browser caches after deployment. Whenever `landing.css` changes, update its `?v=` value to the first 12 characters of the CSS file’s SHA-256 hash.
