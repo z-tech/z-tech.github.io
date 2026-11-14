@@ -6,7 +6,7 @@
   --orange: #fc7954;
   --accent: #b8472c;
   --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --serif: Georgia, "Times New Roman", serif;
   --mono: "DM Mono", ui-monospace, monospace;
   color-scheme: light;
 }
@@ -28,12 +28,12 @@ h1, h2, h3, p { margin-top: 0; }
 .logo-type small { font: 400 10px/1 var(--mono); vertical-align: 5px; margin-inline: 2px; }
 .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(350px, .9fr); align-items: center; gap: clamp(36px, 6vw, 88px); padding-block: 65px 72px; }
 .hero-copy .eyebrow { margin-bottom: 24px; }
-h1 { font: 400 clamp(62px, 6.4vw, 88px)/.99 var(--serif); letter-spacing: -.035em; margin-bottom: 26px; }
-h1 em { display: block; color: var(--accent); font-weight: 400; }
+h1 { font: 700 clamp(48px, 5vw, 68px)/1.06 var(--serif); letter-spacing: -.035em; margin-bottom: 26px; }
+h1 em { display: block; color: var(--accent); font-weight: 700; font-style: normal; }
 .hero-lede { font-size: 19px; line-height: 1.55; letter-spacing: -.015em; max-width: 520px; margin-bottom: 19px; }
 .hero-byline { color: var(--muted); font-size: 13px; line-height: 1.7; max-width: 450px; margin-bottom: 0; }
 .signup-panel { background: #171717; color: var(--paper); padding: 28px 20px 24px; scroll-margin-top: 24px; text-align: center; }
-.signup-panel h2 { font: 400 38px/1.08 var(--serif); letter-spacing: -.015em; margin-bottom: 10px; }
+.signup-panel h2 { font: 400 30px/1.15 var(--serif); letter-spacing: -.015em; margin-bottom: 10px; }
 .signup-promise { color: #e0e4dc; font-size: 12px; line-height: 1.6; margin: 14px 0 8px; }
 .embed-frame { display: block; width: 100%; height: 160px; border: 0; background: #171717; }
 .signup-fallback { font-size: 11px; line-height: 1.8; margin: 0; }
@@ -42,23 +42,23 @@ h1 em { display: block; color: var(--accent); font-weight: 400; }
 .benefit-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
 .benefit-list li { padding-right: 30px; }
 .benefit-list li + li { border-left: 1px solid #b3bead; padding-left: 30px; }
-.benefit-list h3 { font: 400 30px/1.1 var(--serif); margin-bottom: 10px; }
+.benefit-list h3 { font: 400 24px/1.2 var(--serif); margin-bottom: 10px; }
 .benefit-list p { font-size: 13px; line-height: 1.65; max-width: 285px; margin-bottom: 0; }
 .reading-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, .85fr); gap: 64px; padding-block: 52px; }
 .sample { padding-right: 34px; }
 .sample .eyebrow { color: var(--accent); margin-bottom: 21px; }
-.sample h2 { font: 400 clamp(35px, 3.4vw, 48px)/1.05 var(--serif); letter-spacing: -.02em; max-width: 500px; margin-bottom: 23px; }
+.sample h2 { font: 700 clamp(28px, 2.8vw, 38px)/1.15 var(--serif); letter-spacing: -.02em; max-width: 500px; margin-bottom: 23px; }
 blockquote { margin: 0 0 18px; padding-left: 20px; border-left: 2px solid var(--orange); }
-blockquote p { font: italic 400 28px/1.25 var(--serif); max-width: 470px; margin: 0; }
+blockquote p { font: italic 400 23px/1.4 var(--serif); max-width: 470px; margin: 0; }
 .sample-context { color: var(--muted); font-size: 14px; line-height: 1.75; max-width: 470px; margin-bottom: 18px; }
 .text-link { display: inline-flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 600; min-height: 38px; }
 .author { border-left: 1px solid var(--line); padding-left: 36px; }
 .author img { width: 66px; height: 82px; object-fit: cover; float: right; margin: 0 0 18px 18px; }
-.author h2 { font: 400 32px/1.1 var(--serif); margin-bottom: 18px; }
+.author h2 { font: 400 27px/1.2 var(--serif); margin-bottom: 18px; }
 .author p:not(.eyebrow) { font-size: 13px; line-height: 1.75; margin-bottom: 14px; }
 .author-source { color: var(--muted); font-size: 11px; }
 .closing { border-block: 1px solid var(--ink); padding-block: 28px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
-.closing h2 { font: 400 33px/1.15 var(--serif); margin-bottom: 8px; }
+.closing h2 { font: 400 28px/1.2 var(--serif); margin-bottom: 8px; }
 .closing p { color: var(--muted); font-size: 13px; margin: 0; }
 .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 26px; flex-shrink: 0; background: var(--ink); color: var(--paper); padding: 16px 22px; min-height: 50px; text-decoration: none; font-size: 13px; font-weight: 600; transition: background .2s, color .2s; }
 .button:hover { background: var(--orange); color: var(--ink); }
@@ -73,7 +73,7 @@ blockquote p { font: italic 400 28px/1.25 var(--serif); max-width: 470px; margin
 @media (max-width: 1000px) {
   .container { width: calc(100% - 64px); }
   .hero { gap: 32px; grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr); padding-block: 48px; }
-  h1 { font-size: 65px; }
+  h1 { font-size: 49px; }
   .hero-lede { font-size: 17px; }
   .signup-panel { padding-inline: 18px; }
   .reading-row { gap: 30px; }
@@ -85,33 +85,33 @@ blockquote p { font: italic 400 28px/1.25 var(--serif); max-width: 470px; margin
   .masthead { min-height: 72px; }
   .hero { grid-template-columns: 1fr; gap: 26px; padding-block: 32px 42px; }
   .hero-copy .eyebrow { margin-bottom: 17px; font-size: 10px; }
-  h1 { font-size: clamp(48px, 9.5vw, 68px); max-width: 540px; margin-bottom: 18px; }
+  h1 { font-size: clamp(38px, 8vw, 56px); max-width: 540px; margin-bottom: 18px; }
   .hero-lede { font-size: 16px; line-height: 1.55; margin-bottom: 14px; }
   .hero-byline { font-size: 12px; line-height: 1.6; }
   .signup-panel { padding: 22px 12px 18px; }
-  .signup-panel h2 { font-size: 34px; margin-bottom: 8px; }
+  .signup-panel h2 { font-size: 28px; margin-bottom: 8px; }
   .benefits { padding-block: 26px; }
   .benefit-list { grid-template-columns: 1fr; gap: 18px; }
   .benefit-list li { padding: 0; }
   .benefit-list li + li { padding-left: 0; border-left: 0; }
-  .benefit-list h3 { font-size: 27px; margin-bottom: 6px; }
+  .benefit-list h3 { font-size: 24px; margin-bottom: 6px; }
   .benefit-list p { max-width: 100%; font-size: 12px; }
   .reading-row { grid-template-columns: 1fr; gap: 28px; padding-block: 32px; }
   .sample .eyebrow { margin-bottom: 16px; }
-  .sample h2 { font-size: 37px; }
-  blockquote p { font-size: 26px; }
+  .sample h2 { font-size: 30px; }
+  blockquote p { font-size: 22px; }
   .author { border-left: 0; border-top: 1px solid var(--line); padding: 28px 0 0; }
   .author img { width: 74px; height: 92px; }
   .author h2 { margin-bottom: 14px; }
   .closing { align-items: flex-start; flex-direction: column; gap: 20px; padding-block: 25px; }
-  .closing h2 { font-size: 31px; }
+  .closing h2 { font-size: 27px; }
   .footer { flex-direction: column; gap: 10px; }
 }
 @media (max-width: 360px) {
   .container { width: calc(100% - 32px); }
   .logo-type { font-size: 25px; }
   .signup-panel { padding-inline: 10px; }
-  h1 { font-size: 46px; }
+  h1 { font-size: 36px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
